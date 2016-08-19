@@ -36,7 +36,6 @@ module.exports = function (opts) {
       // buffer or pass downstream
       (buffer || this).push(file);
     }, function flush() {
-      var failOnWarning = !opts.ignoreWarning && messages.warning;
       var failOnInfo = !opts.ignoreInfo && messages.info;
       if (fails && (messages.error || failOnInfo)) {
         this.emit('error', new PluginError('gulp-jshint', {
